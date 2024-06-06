@@ -1,108 +1,94 @@
-@extends('frontend.layouts.master')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title','E-Shop || Login Page')
+<head>
 
-@section('main-content')
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="bread-inner">
-                        <ul class="bread-list">
-                            <li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">Login</a></li>
-                        </ul>
+    @include('frontend.layouts.head')
+
+</head>
+
+<body class="user-login blog">
+
+    @include('frontend.layouts.header')
+
+
+    <!-- main content -->
+    <div class="main-content">
+        <div class="wrap-banner">
+
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a href="#">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Login</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <!-- main -->
+        <div id="wrapper-site">
+            <div id="content-wrapper" class="full-width">
+                <div id="main">
+                    <div class="container">
+                        <h1 class="text-center title-page">Log In</h1>
+                        <div class="login-form">
+                            <form id="customer-form" action="{{route('login.submit')}}" method="post">
+                                @csrf
+                                <div>
+                                    <input type="hidden" name="back" value="my-account">
+                                    <div class="form-group no-gutters">
+                                        <input class="form-control" name="email" type="email" placeholder=" Email">
+                                            @error('email')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                    </div>
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password">
+                                            @error('password')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="no-gutters text-center">
+                                        <div class="forgot-password">
+                                            <a href="user-reset-password.html" rel="nofollow">
+                                                Forgot your password?
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="text-center no-gutters">
+                                        <input type="hidden" name="submitLogin" value="1">
+                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                            Sign in
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-            
-    <!-- Shop Login -->
-    <section class="shop login section">
-        <div class="container">
-            <div class="row"> 
-                <div class="col-lg-6 offset-lg-3 col-12">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <p>Please register in order to checkout more quickly</p>
-                        <!-- Form -->
-                        <form class="form" method="post" action="{{route('login.submit')}}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
-                                        <input type="email" name="email" placeholder="" required="required" value="{{old('email')}}">
-                                        @error('email')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Your Password<span>*</span></label>
-                                        <input type="password" name="password" placeholder="" required="required" value="{{old('password')}}">
-                                        @error('password')
-                                            <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group login-btn">
-                                        <button class="btn" type="submit">Login</button>
-                                        <a href="{{route('register.form')}}" class="btn">Register</a>
-                                        <!-- OR
-                                        <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                                        <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                                        <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a> -->
+    <!-- main content -->
 
-                                    </div>
-                                    <div class="checkbox">
-                                        <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Remember me</label>
-                                    </div>
-                                    @if (Route::has('password.request'))
-                                        <a class="lost-pass" href="{{ route('password.reset') }}">
-                                            Lost your password?
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                        </form>
-                        <!--/ End Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ End Login -->
-@endsection
-@push('styles')
-<style>
-    .shop.login .form .btn{
-        margin-right:0;
-    }
-    .btn-facebook{
-        background:#39579A;
-    }
-    .btn-facebook:hover{
-        background:#073088 !important;
-    }
-    .btn-github{
-        background:#444444;
-        color:white;
-    }
-    .btn-github:hover{
-        background:black !important;
-    }
-    .btn-google{
-        background:#ea4335;
-        color:white;
-    }
-    .btn-google:hover{
-        background:rgb(243, 26, 26) !important;
-    }
-</style>
-@endpush
+    @include('frontend.layouts.footer')
+</body>
+
+</html>

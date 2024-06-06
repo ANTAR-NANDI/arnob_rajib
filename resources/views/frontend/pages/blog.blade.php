@@ -1,181 +1,487 @@
-@extends('frontend.layouts.master')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title','E-SHOP || Blog Page')
+<head>
 
-@section('main-content')
-<!-- Breadcrumbs -->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="bread-inner">
-                    <ul class="bread-list">
-                        <li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="javascript:void(0);">Blog Grid Sidebar</a></li>
-                    </ul>
+    @include('frontend.layouts.head')
+
+</head>
+
+<body id="blog-list-sidebar-left" class="blog">
+
+    @include('frontend.layouts.header')
+
+
+    <!-- main content -->
+    <div class="main-content">
+        <div id="wrapper-site">
+            <div id="content-wrapper">
+                <div id="main">
+                    <div class="page-home">
+
+                        <!-- breadcrumb -->
+                        <nav class="breadcrumb-bg">
+                            <div class="container no-index">
+                                <div class="breadcrumb">
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <span>Home</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span>Living Room</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span>Sofa</span>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="container">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
+
+                                        <!-- category -->
+                                        <div class="sidebar-block">
+                                            <div class="title-block">Categories</div>
+                                            <div class="block-content">
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <span class="arrow collapse-icons collapsed" data-toggle="collapse" data-target="#livingroom" aria-expanded="false" role="status">
+                                                        <i class="zmdi zmdi-minus"></i>
+                                                        <i class="zmdi zmdi-plus"></i>
+                                                    </span>
+                                                    <a class="cateItem" href="#">Living Room</a>
+                                                    <div class="subCategory collapse" id="livingroom" aria-expanded="true" role="status">
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">Side Table</a>
+                                                            <div class="subCategory collapse" id="subCategory-fruits" aria-expanded="true" role="status">
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">Side Table</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">FIREPLACE</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">FIREPLACE</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">floor lamp</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">ottoman</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">armchair</a>
+                                                                </div>
+                                                                <div class="cateTitle">
+                                                                    <a href="#" class="cateItem">cushion</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">FIREPLACE</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">FIREPLACE</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">floor lamp</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">ottoman</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">armchair</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">cushion</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bathroom" aria-expanded="false" role="status">
+                                                        <i class="zmdi zmdi-minus"></i>
+                                                        <i class="zmdi zmdi-plus"></i>
+                                                    </span>
+                                                    <a class="cateItem" href="#">Bathroom</a>
+                                                    <div class="subCategory collapse" id="bathroom" aria-expanded="false" role="status">
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">TOMATO</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">BROCCOLI</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">CABBAGE</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">CUCUMBER</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">EGGPLANT</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#diningroom" aria-expanded="false" role="status">
+                                                        <i class="zmdi zmdi-minus"></i>
+                                                        <i class="zmdi zmdi-plus"></i>
+                                                    </span>
+                                                    <a class="cateItem" href="#">Dining Rooom</a>
+                                                    <div class="subCategory collapse" id="diningroom" aria-expanded="true" role="status">
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">DRY BREAD</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">BREAD SLICES</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">FRENCH BREAD</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">BLACK BREAD</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bedroom" aria-expanded="false" role="status">
+                                                        <i class="zmdi zmdi-minus"></i>
+                                                        <i class="zmdi zmdi-plus"></i>
+                                                    </span>
+                                                    <a class="cateItem" href="#">BedRoom</a>
+                                                    <div class="subCategory collapse" id="bedroom" aria-expanded="true" role="status">
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">ORANGE JUICES</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">TOMATO JUICES</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">APPLE JUICES</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#kitchen" aria-expanded="false" role="status">
+                                                        <i class="zmdi zmdi-minus"></i>
+                                                        <i class="zmdi zmdi-plus"></i>
+                                                    </span>
+                                                    <a class="cateItem" href="#">Kitchen</a>
+                                                    <div class="subCategory collapse" id="kitchen" aria-expanded="true" role="status">
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">ORANGE JUICES</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">TOMATO JUICES</a>
+                                                        </div>
+                                                        <div class="cateTitle">
+                                                            <a href="#" class="cateItem">APPLE JUICES</a>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- recent posts -->
+                                        <div class="sidebar-block">
+                                            <div class="title-block">Recent Posts</div>
+                                            <div class="post-item-content">
+                                                <div>
+                                                    <div class="late-item first-child">
+                                                        <a href="blog-detail.html">
+                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
+                                                        </a>
+                                                        <span>
+                                                            <i class="zmdi zmdi-comments"></i>13 comment
+                                                        </span>
+                                                        <span>
+                                                            <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
+                                                        </span>
+                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                            nonummy...
+                                                        </p>
+                                                        <p class="remove">
+                                                            <a href="blog-detail.html">READ MORE</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="late-item">
+                                                        <a href="blog-detail.html">
+                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
+                                                        </a>
+                                                        <span>
+                                                            <i class="zmdi zmdi-comments"></i>13 comment
+                                                        </span>
+                                                        <span>
+                                                            <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
+                                                        </span>
+                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                                                            nonummy...
+                                                        </p>
+                                                        <p class="remove">
+                                                            <a href="blog-detail.html">READ MORE</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- product tag -->
+                                        <div class="sidebar-block product-tags">
+                                            <div class="title-block">
+                                                Blog Tags
+                                            </div>
+                                            <div class="block-content">
+                                                <ul class="listSidebarBlog list-unstyled">
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Hot Trend">Hot Trend</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Jewelry">Jewelry</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="man.html" title="Show products matching tag Man">Man</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Party">Party</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag SamSung">SamSung</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt Dresses</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- advertising -->
+                                        <div class="sidebar-block group-image-special">
+                                            <div class="effect">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="img/blog/advertising.jpg" alt="banner-2" title="banner-2">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
+                                        <h2>Recent Posts</h2>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/4.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/5.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/6.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item  col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/7.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/8.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="list-content row">
+                                            <div class="hover-after col-md-5 col-xs-12">
+                                                <a href="blog-detail.html">
+                                                    <img src="img/blog/9.jpg" alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="late-item  col-md-7 col-xs-12">
+                                                <p class="content-title">
+                                                    <a href="blog-detail.html">Lorem ipsum dolor sit amet</a>
+                                                </p>
+                                                <p class="post-info">
+                                                    <span>3 minitunes ago</span>
+                                                    <span>113 Comments</span>
+                                                    <span>TIVATHEME</span>
+                                                </p>
+                                                <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis
+                                                    bibendum auctor, nisi elit consequat ipsum, elit. Duis sed odio sit amet
+                                                    nibh vultate cursus a sit amet mauris. Proin gravida...
+                                                </p>
+                                                <span class="view-more">
+                                                    <a href="blog-detail.html">view more</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="page-list col">
+                                            <ul class="justify-content-center d-flex">
+                                                <li>
+                                                    <a rel="prev" href="#" class="previous disabled js-search-link">
+                                                        Previous
+                                                    </a>
+                                                </li>
+                                                <li class="current active">
+                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
+                                                        1
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
+                                                        2
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a rel="next" href="#" class="next disabled js-search-link">
+                                                        Next
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Breadcrumbs -->
+    <!-- main content -->
 
-<!-- Start Blog Single -->
-<section class="blog-single shop-blog grid section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-12">
-                <div class="row">
-                    @foreach($posts as $post)
-                    {{-- {{$post}} --}}
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <!-- Start Single Blog  -->
-                        <div class="shop-single-blog">
-                            <img src="{{asset('/uploads/images/posts'). '/' . $post->photo}}" alt="{{$post->photo}}">
-                            <div class="content">
-                                @php
-                                $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
-                                @endphp
-                                <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{$post->created_at->format('d M, Y. D')}}
-                                    <span class="float-right">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        @foreach($author_info as $data)
-                                        @if($data->name)
-                                        {{$data->name}}
-                                        @else
-                                        Anonymous
-                                        @endif
-                                        @endforeach
-                                    </span>
-                                </p>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="title">{{$post->title}}</a>
-                                <p>{!! html_entity_decode($post->summary) !!}</p>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Continue Reading</a>
-                            </div>
-                        </div>
-                        <!-- End Single Blog  -->
-                    </div>
-                    @endforeach
-                    <div class="col-12">
-                        <!-- Pagination -->
-                        {{-- {{$posts->appends($_GET)->links()}} --}}
-                        <!--/ End Pagination -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="main-sidebar">
-                    <!-- Single Widget -->
-                    <div class="single-widget search">
-                        <form class="form" method="GET" action="{{route('blog.search')}}">
-                            <input type="text" placeholder="Search Here..." name="search">
-                            <button class="button" type="sumbit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                    <!--/ End Single Widget -->
-                    <!-- Single Widget -->
-                    <div class="single-widget category">
-                        <h3 class="title">Blog Categories</h3>
-                        <ul class="categor-list">
-                            @if(!empty($_GET['category']))
-                            @php
-                            $filter_cats=explode(',',$_GET['category']);
-                            @endphp
-                            @endif
-                            <form action="{{route('blog.filter')}}" method="POST">
-                                @csrf
-                                {{-- {{count(Helper::postCategoryList())}} --}}
-                                @foreach(Helper::postCategoryList('posts') as $cat)
-                                <li>
-                                    <a href="{{route('blog.category',$cat->slug)}}">{{$cat->title}} </a>
-                                </li>
-                                @endforeach
-                            </form>
+    @include('frontend.layouts.footer')
+</body>
 
-                        </ul>
-                    </div>
-                    <!--/ End Single Widget -->
-                    <!-- Single Widget -->
-                    <div class="single-widget recent-post">
-                        <h3 class="title">Recent post</h3>
-                        @foreach($recent_posts as $post)
-                        <!-- Single Post -->
-                        <div class="single-post">
-                            <div class="image">
-                                <img src="{{asset('/uploads/images/posts'). '/' . $post->photo}}" alt="{{$post->photo}}">
-                            </div>
-                            <div class="content">
-                                <h5><a href="#">{{$post->title}}</a></h5>
-                                <ul class="comment">
-                                    @php
-                                    $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
-                                    @endphp
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$post->created_at->format('d M, y')}}</li>
-                                    <li><i class="fa fa-user" aria-hidden="true"></i>
-                                        @foreach($author_info as $data)
-                                        @if($data->name)
-                                        {{$data->name}}
-                                        @else
-                                        Anonymous
-                                        @endif
-                                        @endforeach
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Single Post -->
-                        @endforeach
-                    </div>
-                    <!--/ End Single Widget -->
-                    <!-- Single Widget -->
-                    <!--/ End Single Widget -->
-                    <!-- Single Widget -->
-                    <div class="single-widget side-tags">
-                        <h3 class="title">Tags</h3>
-                        <ul class="tag">
-                            @if(!empty($_GET['tag']))
-                            @php
-                            $filter_tags=explode(',',$_GET['tag']);
-                            @endphp
-                            @endif
-                            <form action="{{route('blog.filter')}}" method="POST">
-                                @csrf
-                                @foreach(Helper::postTagList('posts') as $tag)
-                                <li>
-                                <li>
-                                    <a href="{{route('blog.tag',$tag->title)}}">{{$tag->title}} </a>
-                                </li>
-                                </li>
-                                @endforeach
-                            </form>
-                        </ul>
-                    </div>
-                    <!--/ End Single Widget -->
-                    <!-- Single Widget -->
-                    <!-- <div class="single-widget newsletter">
-                        <h3 class="title">Newslatter</h3>
-                        <div class="letter-inner">
-                            <h4>Subscribe & get news <br> latest updates.</h4>
-                            <form method="POST" action="{{route('subscribe')}}" class="form-inner">
-                                @csrf
-                                <input type="email" name="email" placeholder="Enter your email">
-                                <button type="submit" class="btn " style="width: 100%">Submit</button>
-                            </form>
-                        </div>
-                    </div> -->
-                    <!--/ End Single Widget -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--/ End Blog Single -->
-@endsection
-@push('styles')
-<style>
-    .pagination {
-        display: inline-flex;
-    }
-</style>
-
-@endpush
+</html>

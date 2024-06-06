@@ -1,214 +1,396 @@
-<header class="header shop">
-    <!-- Topbar -->
-    <div class="topbar">
+<header>
+    @include('frontend.layouts.notification')
+    <!-- header left mobie -->
+    <div class="header-mobile d-md-none">
+        <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
+
+            <!-- menu left -->
+            <div id="mobile_mainmenu" class="item-mobile-top">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+
+            <!-- logo -->
+            <div class="mobile-logo">
+                <a href="index-2.html">
+                    <img class="logo-mobile img-fluid" src="img/home/logo-mobie.png" alt="Prestashop_Furnitica">
+                </a>
+            </div>
+
+            <!-- menu right -->
+            <div class="mobile-menutop" data-target="#mobile-pagemenu">
+                <i class="zmdi zmdi-more"></i>
+            </div>
+        </div>
+
+        <!-- search -->
+        <div id="mobile_search" class="d-flex">
+            <div id="mobile_search_content">
+                <form method="get" action="#">
+                    <input type="text" name="s" value="" placeholder="Search">
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="desktop_cart">
+                <div class="blockcart block-cart cart-preview tiva-toggle">
+                    <div class="header-cart tiva-toggle-btn">
+                        <span class="cart-products-count">1</span>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="cart-content">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="product-image">
+                                            <a href="product-detail.html">
+                                                <img src="img/product/5.jpg" alt="Product">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div class="product-name">
+                                                <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                            </div>
+                                            <div>
+                                                2 x
+                                                <span class="product-price">£28.98</span>
+                                            </div>
+                                        </td>
+                                        <td class="action">
+                                            <a class="remove" href="#">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td colspan="2">Total:</td>
+                                        <td>£92.96</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3" class="d-flex justify-content-center">
+                                            <div class="cart-button">
+                                                <a href="product-cart.html" title="View Cart">View Cart</a>
+                                                <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header desktop -->
+    <div class="header-top d-xs-none ">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-12">
-                    <!-- Top Left -->
-                    <div class="top-left">
-                        <ul class="list-main">
-                            @php
-                            $settings=DB::table('settings')->get();
+                <!-- logo -->
+                <div class="col-sm-2 col-md-2 d-flex align-items-center">
+                    <div id="logo">
+                        <a href="{{route('/')}}">
+                            <img class="img-fluid" src="img/home/logo.png" alt="logo">
+                        </a>
+                    </div>
+                </div>
 
-                            @endphp
-                            <li><i class="ti-headphone-alt"></i>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
-                            <li><i class="ti-email"></i> @foreach($settings as $data) {{$data->email}} @endforeach</li>
+                <!-- menu -->
+                <div class="main-menu col-sm-4 col-md-5 align-items-center justify-content-center navbar-expand-md">
+                    <div class="menu navbar collapse navbar-collapse">
+                        <ul class="menu-top navbar-nav">
+                            <!-- <li class="nav-link">
+                                <a href="#" class="parent">Home</a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li class="item">
+                                            <a href="index-2.html" title="Home Page 1">Home Page 1</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="home2.html" title="Home Page 2">Home Page 2</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="home3.html" title="Home Page 3">Home Page 3</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="home4.html" title="Home Page 4">Home Page 4</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="home5.html" title="Home Page 5">Home Page 5</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            <!-- <li>
+                                <a href="#" class="parent">Blog</a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li class="item">
+                                            <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="blog-list-sidebar-left2.html" title="Blog List (Sidebar Left) 2">Blog List (Sidebar Left) 2</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="blog-list-sidebar-right.html" title="Category Blog (Right column)">Blog List (Sidebar Right)</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="blog-list-no-sidebar.html" title="Blog List (No Sidebar)">Blog List (No Sidebar)</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="blog-grid-no-sidebar.html" title="Blog Grid (No Sidebar)">Blog Grid (No Sidebar)</a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            <!-- <li>
+                                <a href="#" class="parent">Page</a>
+                                <div class="dropdown-menu drop-tab">
+                                    <ul>
+                                        <li class="item container group">
+                                            <div class="dropdown-menu dropdown-tab">
+                                                <ul>
+                                                    <li class="item col-md-4 float-left">
+                                                        <span class="menu-title">Category Style</span>
+                                                        <div class="menu-content">
+                                                            <ul class="col">
+                                                                <li>
+                                                                    <a href="product-grid-sidebar-left.html">Product Grid (Sidebar Left)</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="product-list-sidebar-left.html">Product List (Sidebar left) </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item col-md-4 html  float-left">
+                                                        <span class="menu-title">Product Detail Style</span>
+                                                        <div class="menu-content">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="product-detail.html">Product Detail (Sidebar Left)</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Product Detail (Sidebar Right)</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item col-md-4 html  float-left">
+                                                        <span class="menu-title">Bonus Page</span>
+                                                        <div class="menu-content">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="404.html">404 Page</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="about-us.html">About Us Page</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            <li>
+                                <a href="{{route('/')}}" class="parent">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{route('shop')}}" class="parent">Shop</a>
+                            </li>
+                            <li>
+                                <a href="{{route('blog')}}" class="parent">Blog</a>
+                            </li>
+                            <li>
+                                <a href="{{route('about')}}" class="parent">About US</a>
+                            </li>
+                            <li>
+                                <a href="{{route('contact')}}" class="parent">Contact US</a>
+                            </li>
+
                         </ul>
                     </div>
-                    <!--/ End Top Left -->
                 </div>
-                <div class="col-lg-6 col-md-12 col-12">
-                    <!-- Top Right -->
-                    <div class="right-content">
-                        <ul class="list-main">
-                            <!-- <h4>{{ Session::get('user') }}</h4> -->
-                            {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
-                            @auth
-                            @if(Auth::user()->role=='admin')
-                            <li><i class="ti-user"></i> <a href="{{route('admin')}}" target="_blank">Dashboard</a></li>
-                            @else
-                            <li><i class="ti-user"></i> <a href="{{route('user')}}" target="_blank">Dashboard</a></li>
-                            @endif
-                            <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">Logout</a></li>
-                            <li><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
+
+                <!-- search-->
+                <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex">
+                    <form method="get" action="#">
+                        <input type="text" name="s" value="" placeholder="Search ..." class="ui-autocomplete-input" autocomplete="off">
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- acount  -->
+                    <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
+                        <div class="myaccount-title">
+                            <a href="#acount" data-toggle="collapse" class="acount">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Account</span>
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="acount" class="collapse">
+                            <div class="account-list-content">
 
 
-                            @else
-                            <li><i class="ti-power-off"></i><a href="{{route('login.form')}}">Login /</a> <a href="{{route('register.form')}}">Register</a></li>
-                            @endauth
-                        </ul>
-                    </div>
-                    <!-- End Top Right -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Topbar -->
-    <div class="middle-inner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-2 col-12">
-                    <!-- Logo -->
-                    <div class="logo">
-                        @php
-                        $settings=DB::table('settings')->get();
-                        @endphp
-                        <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{asset('/uploads/images/settings'). '/' . $data->photo}} @endforeach" alt="logo"></a>
-                    </div>
-                    <!--/ End Logo -->
-                    <!-- Search Form -->
-                    <div class="search-top">
-                        <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                        <!-- Search Form -->
-                        <div class="search-top">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search here..." name="search">
-                                <button value="search" type="submit"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
-                        <!--/ End Search Form -->
-                    </div>
-                    <!--/ End Search Form -->
-                    <div class="mobile-nav"></div>
-                </div>
-                <div class="col-lg-8 col-md-7 col-12">
-                    <div class="search-bar-top">
-                        <div class="search-bar">
-                            <!-- <select>
-                                <option>All Category</option>
-                                @foreach(Helper::getAllCategory() as $cat)
-                                <option>{{$cat->title}}</option>
-                                @endforeach
-                            </select> -->
-                            <form method="POST" action="{{route('product.search')}}">
-                                @csrf
-                                <input name="search" placeholder="Search Products Here....." type="search">
-                                <button class="btnn" type="submit"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-12">
-                    <div class="right-bar">
-                        <!-- Search Form -->
-                        <div class="sinlge-bar shopping">
-                            @php
-                            $total_prod=0;
-                            $total_amount=0;
-                            @endphp
-                            @if(session('wishlist'))
-                            @foreach(session('wishlist') as $wishlist_items)
-                            @php
-                            $total_prod+=$wishlist_items['quantity'];
-                            $total_amount+=$wishlist_items['amount'];
-                            @endphp
-                            @endforeach
-                            @endif
-                            <a href="{{route('wishlist')}}" class="single-icon"><i class="fa fa-heart-o"></i> <span class="total-count">{{Helper::wishlistCount()}}</span></a>
-                            <!-- Shopping Item -->
-                            @auth
-                            <div class="shopping-item">
-                                <div class="dropdown-cart-header">
-                                    <span>{{count(Helper::getAllProductFromWishlist())}} Items</span>
-                                    <a href="{{route('wishlist')}}">View Wishlist</a>
+                                @auth
+                                @if(Auth::user()->role=='admin')
+                                <div>
+                                    <a class="login" href="{{route('admin')}}" rel="nofollow" title="Log in to your customer account">
+                                        <i class="fa fa-cog"></i>
+                                        <span>Dashboard</span>
+                                    </a>
                                 </div>
-                                <ul class="shopping-list">
-                                    {{-- {{Helper::getAllProductFromCart()}} --}}
-                                    @foreach(Helper::getAllProductFromWishlist() as $data)
-                                    @php
-                                    $photo=explode(',',$data->product['photo']);
-                                    @endphp
-                                    <li>
-                                        <a href="{{route('wishlist-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                        <a class="cart-img" href="#"><img src="{{$photo[0]}}" alt="{{$photo[0]}}"></a>
-                                        <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
-                                        <p class="quantity">{{$data->quantity}} x - <span class="amount">TK {{number_format($data->price,2)}}</span></p>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                                <div class="bottom">
-                                    <div class="total">
-                                        <span>Total</span>
-                                        <span class="total-amount">TK {{number_format(Helper::totalWishlistPrice(),2)}}</span>
-                                    </div>
-                                    <a href="{{route('cart')}}" class="btn animate">Cart</a>
+                                @else
+                                <div>
+                                    <a class="login" href="user-acount.html" rel="nofollow" title="Log in to your customer account">
+                                        <i class="fa fa-cog"></i>
+                                        <span>Dashboard</span>
+                                    </a>
                                 </div>
-                            </div>
-                            @endauth
-                            <!--/ End Shopping Item -->
-                        </div>
-                        {{-- <div class="sinlge-bar">
-                            <a href="{{route('wishlist')}}" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                    </div> --}}
-                    <div class="sinlge-bar shopping">
-                        <a href="{{route('cart')}}" class="single-icon"><i class="ti-bag"></i> <span class="total-count">{{Helper::cartCount()}}</span></a>
-                        <!-- Shopping Item -->
-                        @auth
-                        <div class="shopping-item">
-                            <div class="dropdown-cart-header">
-                                <span>{{count(Helper::getAllProductFromCart())}} Items</span>
-                                <a href="{{route('cart')}}">View Cart</a>
-                            </div>
-                            <ul class="shopping-list">
-                                {{-- {{Helper::getAllProductFromCart()}} --}}
-                                @foreach(Helper::getAllProductFromCart() as $data)
+                                @endif
+                                <div>
+                                    <a class="check-out" href="product-checkout.html" rel="nofollow" title="Checkout">
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                        <span>Checkout</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="user-wishlist.html" title="My Wishlists">
+                                        <i class="fa fa-heart"></i>
+                                        <span>My Wishlists</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="login" href="{{route('logout')}}" rel="nofollow" title="Log out your account">
+                                        <i class="fa fa-sign-in"></i>
+                                        <span>Sign Out</span>
+                                    </a>
+                                </div>
 
-                                <!-- @php
-                                $photo=explode(',',$data->product['photo']);
-                                @endphp -->
-                                <li>
-                                    <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-                                    <img src="{{asset('/uploads/images/products'). '/' . $data->product['photo']}}" alt="">
-                                    <h4><a href="{{route('product-detail',$data->product['slug'])}}" target="_blank">{{$data->product['title']}}</a></h4>
-                                    <p class="quantity">{{$data->quantity}} x - <span class="amount">TK {{number_format($data->price,2)}}</span></p>
-                                </li>
-                                @endforeach
-                            </ul>
-                            <div class="bottom">
-                                <div class="total">
-                                    <span>Total</span>
-                                    <span class="total-amount">TK {{number_format(Helper::totalCartPrice(),2)}}</span>
+                                @else
+                                <div>
+                                    <a class="login" href="{{route('login')}}" rel="nofollow" title="Log in to your account">
+                                        <i class="fa fa-sign-in"></i>
+                                        <span>Sign in</span>
+                                    </a>
                                 </div>
-                                <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
+                                <div>
+                                    <a class="register" href="{{route('signup')}}" rel="nofollow" title="Register Account">
+                                        <i class="fa fa-user"></i>
+                                        <span>Register Account</span>
+                                    </a>
+                                </div>
+                                @endauth
+
+
+
+
+
+
+                                <!-- <div id="desktop_currency_selector" class="currency-selector groups-selector hidden-sm-down">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a title="Euro" rel="nofollow" href="#">EUR</a>
+                                        </li>
+                                        <li class="current list-inline-item">
+                                            <a title="British Pound Sterling" rel="nofollow" href="#">GBP</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="desktop_language_selector" class="language-selector groups-selector hidden-sm-down">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item current">
+                                            <a href="#">
+                                                <img class="img-fluid" src="img/home/home1-flas.jpg" alt="English" width="16" height="11">
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <img class="img-fluid" src="img/home/home1-flas2.jpg" alt="Italiano" width="16" height="11">
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <img class="img-fluid" src="img/home/home1-flas3.jpg" alt="Français" width="16" height="11">
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <img class="img-fluid" src="img/home/home1-flas4.jpg" alt="Español" width="16" height="11">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> -->
                             </div>
                         </div>
-                        @endauth
-                        <!--/ End Shopping Item -->
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Header Inner -->
-    <div class="header-inner">
-        <div class="container">
-            <div class="cat-nav-head">
-                <div class="row">
-                    <div class="col-lg-12 col-12">
-                        <div class="menu-area">
-                            <!-- Main Menu -->
-                            <nav class="navbar navbar-expand-lg">
-                                <div class="navbar-collapse">
-                                    <div class="nav-inner">
-                                        <ul class="nav main-menu menu navbar-nav">
-                                            <li class="{{Request::path()=='home' ? 'active' : ''}}"><a href="{{route('home')}}">Home</a></li>
-                                            <li class="{{Request::path()=='about-us' ? 'active' : ''}}"><a href="{{route('about-us')}}">About Us</a></li>
-                                            <li class="@if(Request::path()=='product-grids'||Request::path()=='product-lists')  active  @endif"><a href="{{route('product-grids')}}">Products</a><span class="new">New</span></li>
-                                            {{Helper::getHeaderCategory()}}
-                                            <li class="{{Request::path()=='blog' ? 'active' : ''}}"><a href="{{route('blog')}}">Blog</a></li>
+                    <div class="desktop_cart">
+                        <div class="blockcart block-cart cart-preview tiva-toggle">
+                            <div class="header-cart tiva-toggle-btn">
+                                <span class="cart-products-count">1</span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="cart-content">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="product-image">
+                                                    <a href="product-detail.html">
+                                                        <img src="img/product/5.jpg" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="product-name">
+                                                        <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                                    </div>
+                                                    <div>
+                                                        2 x
+                                                        <span class="product-price">£28.98</span>
+                                                    </div>
+                                                </td>
+                                                <td class="action">
+                                                    <a class="remove" href="#">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="total">
+                                                <td colspan="2">Total:</td>
+                                                <td>£92.96</td>
+                                            </tr>
 
-                                            <li class="{{Request::path()=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}">Contact Us</a></li>
-                                        </ul>
-                                    </div>
+                                            <tr>
+                                                <td colspan="3" class="d-flex justify-content-center">
+                                                    <div class="cart-button">
+                                                        <a href="product-cart.html" title="View Cart">View Cart</a>
+                                                        <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </nav>
-                            <!--/ End Main Menu -->
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--/ End Header Inner -->
 </header>
